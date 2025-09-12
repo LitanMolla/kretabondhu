@@ -9,6 +9,8 @@ const totalPriceContainer = getElement('total_price');
 const searchBtn = getElement('search_btn');
 const searchInput = getElement('search_input');
 const homeBtn = getElement('home_btn');
+const mobileBtn = getElement('mobile_btn');
+const mobileMenu = getElement('mobile_menu');
 // load data from api
 let allProducts;
 const loadApiData = async () => {
@@ -123,3 +125,7 @@ searchBtn.addEventListener('click',()=>{
 homeBtn.addEventListener('click',()=>{
     showProducts(allProducts);
 });
+// mobile menu toggole
+mobileBtn.addEventListener('click',()=>{
+    mobileMenu.classList.toggle('hidden');
+})

@@ -23,14 +23,30 @@
         <nav class="max-w-7xl px-4 mx-auto">
             <div class="flex justify-between items-center">
                 <a href="#" class="font-medium text-2xl duration-300 hover:text-gray-100">ক্রেতাবন্ধু</a>
-                <div class="max-w-sm w-full">
+                <div class="max-w-sm w-full md:block hidden">
                     <div class="relative">
-                        <input id="search_input" type="text" placeholder="আপনার পণ্য সার্চ করুন" class="px-5 py-2 border border-gray-700 text-gray-800 bg-gray-100 outline-0 w-full">
-                        <button id="search_btn" class=" px-5  cursor-pointer absolute top-1/2 right-0 -translate-y-1/2 text-gray-800"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <input id="search_input" type="text" placeholder="আপনার পণ্য সার্চ করুন"
+                            class="px-5 py-2 border border-gray-700 text-gray-800 bg-gray-100 outline-0 w-full">
+                        <button id="search_btn"
+                            class=" px-5  cursor-pointer absolute top-1/2 right-0 -translate-y-1/2 text-gray-800"><i
+                                class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                 </div>
-                <ul class="flex space-x-5">
-                    <li><button id="home_btn" class="duration-300 hover:text-gray-100 cursor-pointer">মূলপাতা</button></li>
+                <ul class=" space-x-5  md:flex hidden">
+                    <li><button id="home_btn" class="duration-300 hover:text-gray-100 cursor-pointer">মূলপাতা</button>
+                    </li>
+                    <li><a href="#" class="duration-300 hover:text-gray-100">আমাদের সম্পর্কে</a></li>
+                    <li><a href="#" class="duration-300 hover:text-gray-100">যোগাযোগ</a></li>
+                </ul>
+                <!-- Bar for mobile -->
+                <button id="mobile_btn" class="text-2xl cursor-pointer"><i class="fa-solid fa-bars"></i></button>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="hidden" id="mobile_menu">
+                <!--  -->
+                <ul class=" space-y-2  md:hidden mt-2 text-center">
+                    <li><button id="home_btn" class="duration-300 hover:text-gray-100 cursor-pointer">মূলপাতা</button>
+                    </li>
                     <li><a href="#" class="duration-300 hover:text-gray-100">আমাদের সম্পর্কে</a></li>
                     <li><a href="#" class="duration-300 hover:text-gray-100">যোগাযোগ</a></li>
                 </ul>
@@ -44,7 +60,7 @@
                 <h2 class="text-2xl mb-5 md:text-3xl text-center font-medium">পণ্য তালিকা</h2>
                 <div id="products_container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                     <!--  -->
-                    
+
                     <!-- End -->
                 </div>
             </div>
