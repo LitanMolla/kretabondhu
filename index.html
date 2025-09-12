@@ -19,12 +19,18 @@
 
 <body class="font-[Hind_Siliguri] bg-gray-900 min-h-screen text-yellow-400">
     <!-- Header -->
-    <header class="py-3 backdrop-blur-xl shadow shadow-gray-700 fixed top-0 left-0 w-full bg-gray-900/50">
+    <header class="py-3 backdrop-blur-xl shadow shadow-gray-700 fixed top-0 left-0 w-full bg-gray-900/50 z-50">
         <nav class="max-w-7xl px-4 mx-auto">
             <div class="flex justify-between items-center">
                 <a href="#" class="font-medium text-2xl duration-300 hover:text-gray-100">ক্রেতাবন্ধু</a>
+                <div class="max-w-sm w-full">
+                    <div class="relative">
+                        <input id="search_input" type="text" placeholder="আপনার পণ্য সার্চ করুন" class="px-5 py-2 border border-gray-700 text-gray-800 bg-gray-100 outline-0 w-full">
+                        <button id="search_btn" class=" px-5  cursor-pointer absolute top-1/2 right-0 -translate-y-1/2 text-gray-800"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                </div>
                 <ul class="flex space-x-5">
-                    <li><a href="#" class="duration-300 hover:text-gray-100">মূলপাতা</a></li>
+                    <li><button id="home_btn" class="duration-300 hover:text-gray-100 cursor-pointer">মূলপাতা</button></li>
                     <li><a href="#" class="duration-300 hover:text-gray-100">আমাদের সম্পর্কে</a></li>
                     <li><a href="#" class="duration-300 hover:text-gray-100">যোগাযোগ</a></li>
                 </ul>
@@ -49,7 +55,7 @@
                     <!--  -->
                     <!-- End -->
                 </div>
-                <div id="total_price" class="mt-5 ">
+                <div id="total_price" class="mt-5">
 
                 </div>
             </div>

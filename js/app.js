@@ -6,14 +6,18 @@ const getElement = (id) => {
 const productsContainer = getElement('products_container');
 const addToCartContainer = getElement('addtocart_container');
 const totalPriceContainer = getElement('total_price');
+const searchBtn = getElement('search_btn');
+const searchInput = getElement('search_input');
+const homeBtn = getElement('home_btn');
 // load data from api
+let allProducts;
 const loadApiData = async () => {
     try {
         const url = 'https://dummyjson.com/products';
         const response = await fetch(url);
         const data = await response.json();
-        const products = data.products;
-        showProducts(products)
+        allProducts = data.products;
+        showProducts(allProducts);
     } catch (error) {
         console.log(error);
     }
@@ -24,22 +28,23 @@ const showProducts = (products) => {
     productsContainer.innerHTML = '';
     products.forEach(element => {
         productsContainer.innerHTML += `
-            <div class="bg-gray-800 duration-300 border border-gray-700">
-                <div class="overflow-hidden">
-                    <img class="w-full bg-gray-100 duration-300 hover:scale-110"
-                        src="${element.images[0]}" alt="">
-                </div>
-                <div class="text-center p-2">
-                    <h4 class="text-xl font-medium line-clamp-1">${element.title}</h4>
-                    <p class="font-semibold text-xl">$<span>${element.price}</span></p>
-                </div>
-                <button id="${element.id}"
-                    class="w-full bg-gray-100 text-gray-800 py-2 cursor-pointer font-medium border border-gray-100  duration-300 hover:bg-gray-800 hover:text-gray-100">কার্টে
-                    যোগ করুন</button>
-            </div>
+        <div class="bg-gray-800 duration-300 border border-gray-700">
+        <div class="overflow-hidden">
+        <img class="w-full bg-gray-100 duration-300 hover:scale-110"
+        src="${element.images[0]}" alt="">
+        </div>
+        <div class="text-center p-2">
+        <h4 class="text-xl font-medium line-clamp-1">${element.title}</h4>
+        <p class="font-semibold text-xl">$<span>${element.price}</span></p>
+        </div>
+        <button id="${element.id}"
+        class="w-full bg-gray-100 text-gray-800 py-2 cursor-pointer font-medium border border-gray-100  duration-300 hover:bg-gray-800 hover:text-gray-100">কার্টে
+        যোগ করুন</button>
+        </div>
         `;
     });
 }
+
 // add to cart
 let totalCart = JSON.parse(localStorage.getItem('cart')) || [];
 productsContainer.addEventListener('click', (event) => {
@@ -104,3 +109,17 @@ const emptyCart = () => {
     }
 }
 emptyCart();
+// Search funcnalaty
+searchBtn.addEventListener('click',()=>{
+    const searchValue = searchInput.value.toLowerCase().trim();
+    const searchData = allProducts.filter(item=>item.title.toLowerCase().includes(searchValue));
+    searchInput.value='';
+    if (searchData.length <=0) {
+        return alert('খুঁজে পাওয়া যায়নি')
+    }
+    showProducts(searchData);
+});
+// Home
+homeBtn.addEventListener('click',()=>{
+    showProducts(allProducts);
+});
