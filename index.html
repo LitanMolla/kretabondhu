@@ -22,6 +22,8 @@
     <header class="py-3 backdrop-blur-xl shadow shadow-gray-700 fixed top-0 left-0 w-full bg-gray-900/50 z-50">
         <nav class="max-w-7xl px-4 mx-auto">
             <div class="flex justify-between items-center">
+                <!-- Bar for mobile -->
+                <button id="mobile_btn" class="text-2xl cursor-pointer md:hidden"><i class="fa-solid fa-bars"></i></button>
                 <a href="#" class="font-medium text-2xl duration-300 hover:text-gray-100">ক্রেতাবন্ধু</a>
                 <div class="max-w-sm w-full md:block hidden">
                     <div class="relative">
@@ -38,8 +40,9 @@
                     <li><a href="#" class="duration-300 hover:text-gray-100">আমাদের সম্পর্কে</a></li>
                     <li><a href="#" class="duration-300 hover:text-gray-100">যোগাযোগ</a></li>
                 </ul>
-                <!-- Bar for mobile -->
-                <button id="mobile_btn" class="text-2xl cursor-pointer"><i class="fa-solid fa-bars"></i></button>
+    
+                <!-- Cart Btn -->
+                 <button id="cart_btn" class="text-xl cursor-pointer relative"><i class="fa-solid fa-cart-shopping"></i><span class="min-h-7 min-w-7 bg-yellow-400 rounded-full text-gray-800 text-sm flex justify-center items-center p-1 absolute bottom-3 left-3" id="total_cart">0</span></button>
             </div>
             <!-- Mobile Menu -->
             <div class="hidden" id="mobile_menu">
@@ -56,26 +59,22 @@
     <main class="max-w-7xl px-4 mx-auto text-gray-100">
         <div class="flex flex-col md:flex-row justify-between gap-5 pt-20">
             <!-- Products -->
-            <div class="md:w-2/3">
+            <div class="w-full">
                 <h2 class="text-2xl mb-5 md:text-3xl text-center font-medium">পণ্য তালিকা</h2>
-                <div id="products_container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div id="products_container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                     <!--  -->
 
                     <!-- End -->
                 </div>
             </div>
-            <!-- Add to cart history -->
-            <div class="md:w-1/3 transition-all duration-300">
-                <h2 class="text-2xl mb-5 md:text-3xl text-center font-medium">কেনাকাটার তালিকা</h2>
-                <div id="addtocart_container" class="space-y-2">
-                    <!--  -->
-                    <!-- End -->
-                </div>
-                <div id="total_price" class="mt-5">
-
-                </div>
-            </div>
+            
         </div>
+        <!-- Add to cart -->
+         <div id="cart_body" class="fixed top-0 right-0 bg-gray-800/80 backdrop-blur-xl w-5/6 md:w-1/2 p-2 md:p-5 h-screen hidden overflow-y-auto z-10">
+            <h2 class="text-2xl mb-5 md:text-3xl text-center font-medium mt-15">কেনাকাটার তালিকা</h2>
+                <div id="addtocart_container" class="space-y-2"></div>
+                <div id="total_price" class="mt-5"></div>
+         </div>
     </main>
     <footer class="bg-gray-800/50 py-5 mt-5">
         <div class="max-w-7xl px-4 mx-auto">

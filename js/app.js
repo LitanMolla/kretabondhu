@@ -11,6 +11,9 @@ const searchInput = getElement('search_input');
 const homeBtn = getElement('home_btn');
 const mobileBtn = getElement('mobile_btn');
 const mobileMenu = getElement('mobile_menu');
+const cartBtn = getElement('cart_btn');
+const cartBody = getElement('cart_body');
+const cartCount = getElement('total_cart');
 // load data from api
 let allProducts;
 const loadApiData = async () => {
@@ -65,6 +68,7 @@ productsContainer.addEventListener('click', (event) => {
     }
     showCart(totalCart);
     localStorage.setItem('cart', JSON.stringify(totalCart));
+    emptyCart()
 })
 // show add to cart 
 const showCart = (carts) => {
@@ -106,9 +110,10 @@ const removeFrom = (id) => {
 const emptyCart = () => {
     if (totalCart.length <= 0) {
         totalPriceContainer.innerHTML = `
-            <h4 class="text-xl font-medium bg-gray-800 px-5 py-2 border border-gray-700">কার্ট ফাঁকা, কেনাকাটা শুরু করুন</h4>
-            `;
+        <h4 class="text-xl font-medium bg-gray-800 px-5 py-2 border border-gray-700">কার্ট ফাঁকা, কেনাকাটা শুরু করুন</h4>
+        `;
     }
+    cartCount.innerHTML=totalCart.length;
 }
 emptyCart();
 // Search funcnalaty
@@ -128,4 +133,8 @@ homeBtn.addEventListener('click',()=>{
 // mobile menu toggole
 mobileBtn.addEventListener('click',()=>{
     mobileMenu.classList.toggle('hidden');
+})
+// Add to cart body toogle
+cartBtn.addEventListener('click',()=>{
+    cartBody.classList.toggle('hidden')
 })
